@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#111111">
+<title>MOHAMMED ALI MOTORS | Motorcycle Parts</title>
+<style>
+:root{--red:#e21b2d;--dark:#111;--ink:#202124;--muted:#70757d;--line:#e8e8e8;--bg:#f6f6f7}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,"Noto Sans Bengali",sans-serif;color:var(--ink);background:#fff}
+a{color:inherit;text-decoration:none}button,input,select{font:inherit}
+.top{background:#090909;color:#eee;text-align:center;padding:8px 12px;font-size:12px;letter-spacing:.3px}
+header{background:#111;color:#fff;position:sticky;top:0;z-index:10;box-shadow:0 3px 12px #0002}
+.head{max-width:1200px;margin:auto;padding:16px 20px;display:flex;align-items:center;gap:22px}
+.logo{font-weight:900;font-size:20px;line-height:1.05;white-space:nowrap}.logo span{color:var(--red)}
+.logo small{display:block;font-size:9px;letter-spacing:2.2px;color:#bbb;margin-top:5px}
+.search{flex:1;display:flex;background:#fff;border-radius:7px;overflow:hidden}.search input{border:0;outline:0;padding:12px 14px;width:100%;min-width:0}.search button{border:0;background:var(--red);color:white;padding:0 18px;font-weight:bold;cursor:pointer}
+.head-actions{display:flex;gap:10px;align-items:center}.head-actions a,.cartbtn{border:1px solid #555;color:white;padding:10px 12px;border-radius:6px;background:transparent;cursor:pointer;font-size:13px}
+nav{border-top:1px solid #303030}.navin{max-width:1200px;margin:auto;padding:0 20px;display:flex;gap:25px;overflow:auto;white-space:nowrap}.navin a{padding:12px 0;font-size:13px;color:#ddd}.navin a:hover{color:#fff}
+.hero{background:linear-gradient(110deg,#101010 0%,#242424 65%,#5b1018 100%);color:white;overflow:hidden}
+.hero-in{max-width:1200px;margin:auto;padding:55px 20px;display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:25px;min-height:330px}
+.eyebrow{color:#ff5967;font-weight:bold;letter-spacing:2px;font-size:12px}.hero h1{font-size:clamp(32px,5vw,54px);line-height:1.05;margin:14px 0}.hero p{color:#d3d3d3;max-width:540px;line-height:1.7}.cta{display:inline-block;background:var(--red);color:white;padding:13px 20px;border-radius:6px;font-weight:bold;margin-top:10px}
+.hero-art{min-height:210px;display:grid;place-items:center;font-size:110px;filter:drop-shadow(0 20px 15px #0008)}
+.wrap{max-width:1200px;margin:auto;padding:30px 20px}.benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:-1px}
+.benefit{padding:17px;border:1px solid var(--line);border-radius:8px;display:flex;gap:12px;align-items:center}.benefit b{display:block;font-size:14px}.benefit small{color:var(--muted)}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:12px;margin:34px 0 18px}.section-head h2{margin:0;font-size:25px}.section-head p{margin:5px 0 0;color:var(--muted);font-size:13px}
+.categories{display:flex;gap:9px;flex-wrap:wrap}.chip{border:1px solid #ddd;background:white;border-radius:30px;padding:9px 15px;cursor:pointer;font-size:13px}.chip.active,.chip:hover{background:#111;color:white;border-color:#111}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.product{border:1px solid var(--line);border-radius:9px;overflow:hidden;background:white;transition:.2s}.product:hover{transform:translateY(-3px);box-shadow:0 8px 22px #0000000d}
+.pic{height:155px;background:#f0f0f0;display:grid;place-items:center;font-size:57px;position:relative}.tag{position:absolute;top:10px;left:10px;background:#111;color:white;font-size:10px;padding:5px 8px;border-radius:3px}
+.pinfo{padding:13px}.pinfo small{color:var(--muted)}.pinfo h3{font-size:15px;margin:7px 0;min-height:36px}.price{font-weight:800;color:var(--red);font-size:18px}.old{font-size:12px;color:#999;text-decoration:line-through;margin-left:6px}.pactions{display:flex;gap:7px;margin-top:12px}.pactions button{flex:1;border:0;border-radius:5px;padding:10px 7px;cursor:pointer;font-size:12px;font-weight:bold}.add{background:#111;color:white}.order{background:#fff0f1;color:var(--red)}
+.empty{grid-column:1/-1;text-align:center;color:var(--muted);padding:35px}
+.about{background:#f7f7f7;border-radius:10px;padding:25px;line-height:1.7}.about h2{margin-top:0}
+footer{background:#101010;color:#ddd;margin-top:35px}.foot{max-width:1200px;margin:auto;padding:35px 20px;display:grid;grid-template-columns:2fr 1fr 1fr;gap:25px}.foot h3{color:white}.foot p,.foot a{font-size:13px;color:#bbb;line-height:1.8}.copyright{text-align:center;border-top:1px solid #333;padding:14px;font-size:12px;color:#999}
+.cart-panel{position:fixed;right:0;top:0;width:min(390px,100%);height:100vh;background:white;z-index:30;box-shadow:-10px 0 35px #0003;padding:20px;transform:translateX(110%);transition:.25s;display:flex;flex-direction:column}.cart-panel.open{transform:translateX(0)}.cart-top{display:flex;justify-content:space-between;align-items:center}.cart-items{overflow:auto;flex:1}.cart-row{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid var(--line);padding:13px 0;font-size:14px}.qty{display:flex;align-items:center;gap:8px}.qty button{border:1px solid #ddd;background:white;border-radius:4px;width:25px;height:25px;cursor:pointer}.checkout{border:0;background:#159447;color:white;padding:14px;border-radius:6px;font-weight:bold;cursor:pointer;width:100%;margin-top:12px}.shade{display:none;position:fixed;inset:0;background:#0007;z-index:20}.shade.show{display:block}
+@media(max-width:800px){.head{flex-wrap:wrap;gap:12px}.logo{font-size:18px}.search{order:3;flex-basis:100%}.head-actions{margin-left:auto}.hero-in{grid-template-columns:1fr;padding:40px 20px}.hero-art{display:none}.grid{grid-template-columns:repeat(2,1fr);gap:10px}.pic{height:125px}.benefits{grid-template-columns:1fr}.foot{grid-template-columns:1fr 1fr}.foot>div:first-child{grid-column:1/-1}}
+@media(max-width:420px){.head-actions a{display:none}.grid{gap:8px}.pinfo{padding:10px}.pinfo h3{font-size:13px}.pactions button{font-size:11px;padding:9px 4px}.wrap{padding:22px 13px}.navin{padding:0 13px}.hero-in{padding:35px 16px}}
+</style>
+</head>
+<body>
+<div class="top">MOHAMMED ALI MOTORS — আপনার বাইকের বিশ্বস্ত পার্টস শপ</div>
+<header>
+ <div class="head">
+  <a class="logo" href="#"><span>MOHAMMED</span><br>ALI MOTORS<small>MOTORCYCLE PARTS & ACCESSORIES</small></a>
+  <form class="search" id="searchForm"><input id="searchInput" placeholder="পার্টসের নাম বা বাইকের মডেল লিখুন..." aria-label="Search products"><button>SEARCH</button></form>
+  <div class="head-actions"><a href="#contact">যোগাযোগ</a><button class="cartbtn" onclick="toggleCart(true)">🛒 কার্ট (<span id="cartCount">0</span>)</button></div>
+ </div>
+ <nav><div class="navin"><a href="#">হোম</a><a href="#shop">সকল পার্টস</a><a href="#shop" data-cat="Engine">Engine Parts</a><a href="#shop" data-cat="Brake">Brake Parts</a><a href="#shop" data-cat="Electrical">Electrical</a><a href="#shop" data-cat="Body">Body Parts</a><a href="#shop" data-cat="Accessories">Accessories</a><a href="#contact">যোগাযোগ</a></div></nav>
+</header>
+<section class="hero">
+ <div class="hero-in"><div><div class="eyebrow">RIDE WITH CONFIDENCE</div><h1>আপনার বাইকের<br><span style="color:#ff4555">প্রয়োজনীয় সব পার্টস</span></h1><p>ইঞ্জিন পার্টস থেকে শুরু করে ব্রেক, ইলেকট্রিক্যাল ও অ্যাক্সেসরিজ—আপনার প্রয়োজনীয় পার্টস খুঁজুন এক জায়গায়।</p><a class="cta" href="#shop">পণ্য দেখুন →</a></div><div class="hero-art">🏍️</div></div>
+</section>
+<main class="wrap">
+ <div class="benefits">
+  <div class="benefit"><span>🧰</span><div><b>বিভিন্ন ক্যাটাগরির পার্টস</b><small>এক জায়গায় প্রয়োজনীয় পণ্য</small></div></div>
+  <div class="benefit"><span>📲</span><div><b>সহজ WhatsApp অর্ডার</b><small>সরাসরি অর্ডার পাঠান</small></div></div>
+  <div class="benefit"><span>🏁</span><div><b>বাইক পার্টসের সমাধান</b><small>আপনার বাইকের জন্য সঠিক পার্টস খুঁজুন</small></div></div>
+ </div>
+ <div class="section-head" id="shop"><div><h2>আমাদের পণ্য</h2><p>ক্যাটাগরি বেছে নিন অথবা পণ্যের নাম লিখে সার্চ করুন</p></div></div>
+ <div class="categories" id="categories">
+  <button class="chip active" data-cat="All">সব পণ্য</button><button class="chip" data-cat="Engine">Engine</button><button class="chip" data-cat="Brake">Brake</button><button class="chip" data-cat="Electrical">Electrical</button><button class="chip" data-cat="Body">Body Parts</button><button class="chip" data-cat="Accessories">Accessories</button>
+ </div>
+ <div class="grid" id="productGrid" style="margin-top:17px"></div>
+ <section class="about" style="margin-top:38px"><h2>MOHAMMED ALI MOTORS</h2><p>মোটরসাইকেল পার্টস ও অ্যাক্সেসরিজের অনলাইন শপ। আপনার প্রয়োজনীয় পণ্য বেছে নিন, কার্টে যোগ করুন এবং WhatsApp-এর মাধ্যমে অর্ডার পাঠান।</p></section>
+</main>
+<footer id="contact"><div class="foot">
+ <div><h3>MOHAMMED ALI MOTORS</h3><p>Motorcycle Parts & Accessories<br>GHOSHBAG, ZIRABO, ASHULIA, SAVAR, DHAKA, BANGLADESH</p></div>
+ <div><h3>কুইক লিংক</h3><p><a href="#shop">সকল পণ্য</a><br><a href="#shop">ক্যাটাগরি</a><br><a href="#">হোম</a></p></div>
+ <div><h3>যোগাযোগ</h3><p>WhatsApp: নম্বর যোগ করা হয়নি<br>সময়: দোকানের সময় পরে যোগ করুন</p></div>
+ </div><div class="copyright">© <span id="year"></span> MOHAMMED ALI MOTORS. All rights reserved.</div></footer>
+<div class="shade" id="shade" onclick="toggleCart(false)"></div>
+<aside class="cart-panel" id="cartPanel"><div class="cart-top"><h2>আপনার কার্ট</h2><button onclick="toggleCart(false)" style="border:0;background:none;font-size:25px;cursor:pointer">×</button></div><div class="cart-items" id="cartItems"></div><div><div style="display:flex;justify-content:space-between;font-weight:bold;padding-top:15px">মোট <span id="cartTotal">৳0</span></div><button class="checkout" onclick="checkout()">WhatsApp-এ অর্ডার করুন</button><small style="display:block;color:#777;margin-top:8px">অর্ডার পাঠানোর আগে WhatsApp নম্বর সেট করতে হবে।</small></div></aside>
+<script>
+/* ডেমো পণ্য: নিজের আসল পণ্য, দাম ও ছবি দিয়ে পরিবর্তন করুন।
+   WhatsApp নম্বর: দেশের কোডসহ লিখুন, যেমন 8801XXXXXXXXX (শুরুর + দেবেন না)। */
+const WHATSAPP_NUMBER = "8801XXXXXXXXX";
+const products = [
+ {id:1,name:"Engine Oil 10W-40",brand:"Universal",cat:"Engine",price:650,icon:"🛢️",tag:"জনপ্রিয়"},
+ {id:2,name:"Spark Plug",brand:"Universal",cat:"Electrical",price:250,icon:"⚡",tag:""},
+ {id:3,name:"Front Brake Pad",brand:"Model অনুযায়ী",cat:"Brake",price:450,icon:"🛑",tag:""},
+ {id:4,name:"Air Filter",brand:"Model অনুযায়ী",cat:"Engine",price:350,icon:"🔧",tag:""},
+ {id:5,name:"LED Headlight",brand:"Universal",cat:"Electrical",price:850,icon:"💡",tag:""},
+ {id:6,name:"Side Mirror Set",brand:"Universal",cat:"Body",price:700,icon:"🪞",tag:""},
+ {id:7,name:"Bike Handle Grip",brand:"Universal",cat:"Accessories",price:300,icon:"🏍️",tag:""},
+ {id:8,name:"Chain Sprocket Kit",brand:"Model অনুযায়ী",cat:"Engine",price:1250,icon:"⚙️",tag:""}
+];
+let category="All", cart={};
+const money=n=>"৳"+Number(n).toLocaleString("en-US");
+function render(){
+ const q=document.getElementById("searchInput").value.trim().toLowerCase();
+ const list=products.filter(p=>(category==="All"||p.cat===category)&&(`${p.name} ${p.brand} ${p.cat}`).toLowerCase().includes(q));
+ document.getElementById("productGrid").innerHTML=list.length?list.map(p=>`<article class="product"><div class="pic"><span>${p.icon}</span>${p.tag?`<span class="tag">${p.tag}</span>`:""}</div><div class="pinfo"><small>${p.brand} · ${p.cat}</small><h3>${p.name}</h3><div class="price">${money(p.price)}</div><div class="pactions"><button class="add" onclick="addToCart(${p.id})">কার্টে যোগ</button><button class="order" onclick="quickOrder(${p.id})">অর্ডার</button></div></div></article>`).join(""):`<div class="empty">কোনো পণ্য পাওয়া যায়নি। অন্য নামে সার্চ করুন।</div>`;
+}
+document.getElementById("categories").addEventListener("click",e=>{const b=e.target.closest("button[data-cat]");if(!b)return;category=b.dataset.cat;document.querySelectorAll(".chip").forEach(x=>x.classList.toggle("active",x===b));render()});
+document.querySelectorAll(".navin a[data-cat]").forEach(a=>a.addEventListener("click",()=>{category=a.dataset.cat;document.querySelectorAll(".chip").forEach(x=>x.classList.toggle("active",x.dataset.cat===category));render()}));
+document.getElementById("searchInput").addEventListener("input",render);
+document.getElementById("searchForm").addEventListener("submit",e=>{e.preventDefault();render();document.getElementById("shop").scrollIntoView({behavior:"smooth"})});
+function addToCart(id){cart[id]=(cart[id]||0)+1;updateCart();toggleCart(true)}
+function updateCart(){
+ const entries=Object.entries(cart);document.getElementById("cartCount").textContent=entries.reduce((s,[,q])=>s+q,0);
+ document.getElementById("cartItems").innerHTML=entries.length?entries.map(([id,q])=>{const p=products.find(x=>x.id==id);return `<div class="cart-row"><div><b>${p.name}</b><br><small>${money(p.price)} × ${q}</small></div><div class="qty"><button onclick="changeQty(${id},-1)">−</button>${q}<button onclick="changeQty(${id},1)">+</button></div></div>`}).join(""):`<p style="color:#777;text-align:center;margin-top:35px">আপনার কার্ট খালি।</p>`;
+ document.getElementById("cartTotal").textContent=money(entries.reduce((s,[id,q])=>s+products.find(p=>p.id==id).price*q,0));
+}
+function changeQty(id,n){cart[id]=(cart[id]||0)+n;if(cart[id]<=0)delete cart[id];updateCart()}
+function toggleCart(open){document.getElementById("cartPanel").classList.toggle("open",open);document.getElementById("shade").classList.toggle("show",open)}
+function sendWhatsApp(message){if(WHATSAPP_NUMBER==="8801XXXXXXXXX"){alert("প্রথমে HTML ফাইলে WHATSAPP_NUMBER-এর জায়গায় আপনার WhatsApp নম্বর বসান।");return}window.open("https://wa.me/"+WHATSAPP_NUMBER+"?text="+encodeURIComponent(message),"_blank")}
+function quickOrder(id){const p=products.find(x=>x.id===id);sendWhatsApp(`আসসালামু আলাইকুম, MOHAMMED ALI MOTORS থেকে অর্ডার করতে চাই:\n${p.name}\nদাম: ${money(p.price)}\nপরিমাণ: 1\nআমার বাইকের মডেল: `)}
+function checkout(){const entries=Object.entries(cart);if(!entries.length){alert("আপনার কার্ট খালি।");return}let total=0;let lines=entries.map(([id,q])=>{const p=products.find(x=>x.id==id);total+=p.price*q;return `${p.name} — ${q} × ${money(p.price)} = ${money(p.price*q)}`});sendWhatsApp(`আসসালামু আলাইকুম, MOHAMMED ALI MOTORS থেকে অর্ডার করতে চাই:\n\n${lines.join("\n")}\n\nমোট: ${money(total)}\nনাম:\nঠিকানা:\nমোবাইল:\nবাইকের মডেল:`)}
+document.getElementById("year").textContent=new Date().getFullYear();render();updateCart();
+</script>
+</body></html>
