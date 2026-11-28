@@ -102,9 +102,7 @@ function updateCart(){
 }
 function changeQty(id,n){cart[id]=(cart[id]||0)+n;if(cart[id]<=0)delete cart[id];updateCart()}
 function toggleCart(open){document.getElementById("cartPanel").classList.toggle("open",open);document.getElementById("shade").classList.toggle("show",open)}
-function sendWhatsApp(message)function sendWhatsApp(message){
- window.open("https://wa.me/"+WHATSAPP_NUMBER+"?text="+encodeURIComponent(message),"_blank");
-}{if(WHATSAPP_NUMBER==="8801326840152"){alert("প্রথমে HTML ফাইলে WHATSAPP_NUMBER-এর জায়গায় আপনার WhatsApp নম্বর বসান।");return}window.open("https://wa.me/"+WHATSAPP_NUMBER+"?text="+encodeURIComponent(message),"_blank")}
+{if(WHATSAPP_NUMBER==="8801326840152"){alert("প্রথমে HTML ফাইলে WHATSAPP_NUMBER-এর জায়গায় আপনার WhatsApp নম্বর বসান।");return}window.open("https://wa.me/"+WHATSAPP_NUMBER+"?text="+encodeURIComponent(message),"_blank")}
 function quickOrder(id){const p=products.find(x=>x.id===id);sendWhatsApp(`আসসালামু আলাইকুম, MOHAMMED ALI MOTORS থেকে অর্ডার করতে চাই:\n${p.name}\nদাম: ${money(p.price)}\nপরিমাণ: 1\nআমার বাইকের মডেল: `)}
 function checkout(){const entries=Object.entries(cart);if(!entries.length){alert("আপনার কার্ট খালি।");return}let total=0;let lines=entries.map(([id,q])=>{const p=products.find(x=>x.id==id);total+=p.price*q;return `${p.name} — ${q} × ${money(p.price)} = ${money(p.price*q)}`});sendWhatsApp(`আসসালামু আলাইকুম, MOHAMMED ALI MOTORS থেকে অর্ডার করতে চাই:\n\n${lines.join("\n")}\n\nমোট: ${money(total)}\nনাম:\nঠিকানা:\nমোবাইল:\nবাইকের মডেল:`)}
 document.getElementById("year").textContent=new Date().getFullYear();render();updateCart();
